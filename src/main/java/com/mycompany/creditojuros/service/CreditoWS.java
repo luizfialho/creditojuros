@@ -13,7 +13,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
+@Service
 @Path("credito")
 public class CreditoWS {
     
@@ -35,8 +38,10 @@ public class CreditoWS {
             CreditoVO credito = populaParamsEntrada(nome, valor, tipo);
 
             aplicaRegraJuros(credito);
+            
+            ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-            CreditoDAO creditoDAO = new CreditoDAO();
+            CreditoDAO creditoDAO = (CreditoDAO)ctx.getBean("creditoDAO");
 
             creditoDAO.salvarCredito(credito);
 
