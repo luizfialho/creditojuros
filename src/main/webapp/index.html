@@ -23,7 +23,7 @@
   
 	<div class="form-group">
 	<label>Credito Necessario:</label>
-		<input class="form-control form-control-lg tamanho" placeholder="Ex.: 5000,00" type="money" ng-model="formData.creditocliente">
+		<input class="form-control form-control-lg tamanho" placeholder="Ex.: 5000.00" type="money" ng-model="formData.creditocliente">
 	</div>
 
 	<div class="form-group">
@@ -67,7 +67,7 @@ app.controller('formulario', ['$scope', '$http', function($scope, $http) {
   
     $scope.processForm = function() {
             $scope.credit;
-              var baseUrl = 'http://laptop-63fdmncb:46604/creditojuros/webresources/credito/salvarcredito/' + $scope.formData.nomecliente +
+              var baseUrl = 'http://159.203.123.149:8080/creditojuros/webresources/credito/salvarcredito/' + $scope.formData.nomecliente +
               "/" + $scope.formData.creditocliente + "/" + $scope.formData.riscoSelecionado;
 
               var config = {
